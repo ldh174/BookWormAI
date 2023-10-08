@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookWormAI</title>
+    <link rel="icon" type="image/x-icon" href="../static/favicon.ico">
+    <link rel="stylesheet" href="../static/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar__container">
+
+            <a href="/index.html" id="navbar__logo">
+                <img src="../static/BookWormAI.png"/>
+                <span class="lowerdown">
+                    BookWormAI
+                </span>
+
+            </a>
+            <div class="navbar__togle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="history.html" class="navbar__links">
+                        History
+                    </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="submission.html" class="navbar__links">
+                        Submissions
+                    </a>
+                </li>
+                <li class="btn">
+                    <a href="login.html" class="button">
+                        Log In
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="px-5 mb-4 rounded-3" style="background-color: rgb(255, 255, 255);">
+        <div class="container-fluid py-1">
+
+            <div class="px-3 py-3 mb-4">
+                <h1>Create your first submission through the submission tab:</h1>
+            <!-- js script block here-->
+            <!-- in database select up to the top 10 -->
+            <div id="myHTMLWrapper">
+
+            </div>
+
+            <script>
+                var wrapper = document.getElementById("myHTMLWrapper");
+
+                var myHTML = '';
+                var myData = ''; // data will be retrieved here
+                // get data from server and iterate through the loop
+                // say its named data
+
+                for (var i = 0; i < 10; i++) {
+                    myHTML += `
+                    <a href = "history.html">
+                        <span class="test">${(i + 1)}) [Title]</span>
+                        <br>
+                    </a>`;
+                }
+
+                wrapper.innerHTML = myHTML
+            </script>
+            </div>
+        </div>
+    </div>
+    {% for i in arr2 %}
+        {{i}}
+    {% endfor %}
+    <p>asdfdsafsa</p>
+</body>
+</html>
+
+

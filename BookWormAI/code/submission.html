@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit book</title>
+    <link rel="icon" type="image/x-icon" href="../media/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<body>
+    
+    <!--
+    <style>
+
+        .btn{
+            background: #10622a;
+        }
+    </style>
+    -->
+    <nav class="navbar">
+        <div class="navbar__container">
+                        
+            <a href="index.html" id="navbar__logo">
+                <img src="../media/BookWormAI.png"/>
+                <span class="lowerdown">
+                    BookWormAI
+                </span>
+                
+            </a>
+            <div class="navbar__togle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <ul class="navbar__menu">
+                <li class="navbar__item">
+                    <a href="history.html" class="navbar__links">
+                        History
+                    </a>
+                </li>
+                <li class="navbar__item">
+                    <a href="submission.html" class="navbar__links">
+                        Submissions
+                    </a>
+                </li>
+                <li class="btn">
+                    <a href="login.html" class="button">
+                        Log In
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>  
+
+
+    <div class="px-5 mb-4 rounded-3" style="background-color: rgb(255, 255, 255);">
+        <div class="container-fluid py-1">
+
+            <a href="index.html"><img style="width:50px; height:100px" src="../media/BookWormAI.png"/></a><h1 style="display:inline"> Submit Book </h1>
+
+            <br>
+            <form onsubmit="return validateForm()" name = "book_form" action="database.php" method="POST">
+                <div class="form-group">
+                    <label for="title">Book Name:</label>
+                    <input maxlength = "150" name = "title" required type="text" class="form-control" id="id_book_text">
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author:</label>
+                    <input maxlength = "150" name = "author" type="text" class="form-control" id="id_author">
+                </div>
+
+                <div class ="pt-1 pb-2 form-group">
+                    <label for="book_text">Text:</label>
+                    <textarea name = "book_texts" class="form-control" id="id_book_text" rows="3"></textarea>
+                </div>
+
+
+                <div class="pt-5 pb-2 form-group">
+                    <label for="book_file" class="form-label">Input a .txt or .pdf file instead: </label>
+                    <input class="form-control" name = "book_file" accept=".pdf, .txt" type="file" id="formFile">
+                </div>
+
+                <div class="pt-5 pb-2 form-group">
+                    <input name="public_sub" class="form-label" type="checkbox" value="" id="defaultCheck1">
+                    <label for="defaultCheck1">
+                      Check the box if you would like to make your submission public.
+                    </label>
+                  </div>
+
+                <button class = "submissionbtn btn btn-outline-success btn-lg" type="submit">Submit</button>
+            </form>
+
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+function validateForm() {
+    console.log("rthis got called")
+    var title = document.forms["book_form"]["title"].value;
+    var author = document.forms["book_form"]["author"].value;
+    var text = document.forms["book_form"]["book_texts"].value;
+    var text_file = document.forms["book_form"]["book_file"].value;
+    var public = document.forms["book_form"]["public_sub"].value;
+    // for some reason if the form field doesn't exist, it does an error I think? 
+    if (text != null && text != "" && text_file == "")
+    {
+        alert(`Hurray, you did the bare minimum!`)
+
+    } else if (text_file != "" && (text == null || text == ""))
+    {
+        alert(`Hurray, you did the bare minimum!`)
+
+        // this will send it back 
+    } else {
+        alert("Please Enter exactly 1 form of text");
+        //executeScript()
+        return false;
+    }
+}
+
+$(document).ready(
+    $(function reply_btn_logic(){
+        console.log("reply logic has loaded")
+
+        $('.submissionbtn').click(function(){
+            $.ajax({
+                type: "POST",
+                url: "queue.py",
+                data: {param: "Hello World!"},
+                success: function(data) {
+                    // TODO: please rename id, it really annoys me 
+                    console.log("success")
+                },
+                error: function (xhr, status) {
+                    alert("Sorry, there was a problem!");
+                },
+            });
+            // send info back through AJAX
+        })
+    })
+);
+</script>
+    <!-- These script blocks are necessary for jquery to run 28A745-->
+
+</body>
+

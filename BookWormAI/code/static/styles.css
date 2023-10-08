@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family:'Times New Roman', Times, serif;
+    font-weight: bold;
+}
+
+img {
+    width: 150px;
+    height: 300px;
+    margin: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar {
+    background: #2fda60;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 24px;
+    top: 0;
+    z-index: 999;
+    border-bottom: 5px solid #10622a;
+    opacity: .85;
+    background-image: url("../static/oldbooks.jpg");
+}
+
+.navbar__container {
+    display: flex;
+    justify-content: space-between;
+    height: 80;
+    z-index: 1;
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 50px;
+}
+
+#navbar__logo{
+    background: white;
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    -moz-text-fill-color: transparent;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 100px;
+}
+
+.navbar__menu {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    text-align: center;
+}
+
+.navbar__item {
+    height: 80px;
+}
+
+.navbar__links{
+    color: #1eb14c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding: 0 16px;
+    height: 100%;
+}
+
+.navbar__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px;
+    width: 100%;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    padding: 10px 20px;
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    border-radius: 4px;
+    background: #1eb14c;
+    color: white;
+}
+
+.button:hover {
+    background-color: #19da56;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.navbar__links:hover {
+    color: rgb(255, 255, 255);
+    transition: all 0.3s ease;
+}
+
+.history__pageL {
+    height: 15%;
+    width: 22.5%;
+    background-color: white;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid black;
+    margin-left: 4%;
+}
+
+.history__page {
+    height: 15%;
+    width: 22.5%;
+    background-color: white;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid black;
+    margin-left: 1px;
+    margin-right: 1px;
+}
+
+.history__pageR {
+    height: 15%;
+    width: 22.5%;
+    background-color: white;
+    color: black;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: 2px solid black;
+    margin-right: 4%;
+}

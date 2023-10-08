@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Call Python Script from HTML</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#button").click(function() {
+                $.ajax({
+                    type: "POST",
+                    url: "sample.py",
+                    data: {param: "Hello World!"},
+                    success: function(response) {
+                        alert(response);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Call Python Script from HTML</h1>
+    <button id="button">Click me!</button>
+</body>
+</html>
