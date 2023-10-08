@@ -27,7 +27,6 @@ def returnhistory():
     # importing csv module 
     # csv file name
     filename = "./data/reviews.csv"
-    print("jsdalkfjsa")
     # initializing the titles and rows list
     fields = []
     rows = []
@@ -80,12 +79,9 @@ def allowed_file(name):
 def success():
     if request.method == 'POST':
         f = request.files['file']
-        public = request.form.get('public_sub') # should get the public. Test if it is true or false, then return it. 
-        temp = False
-        if public == "true":
-            temp = True
         if allowed_file(f.filename):
-            return render_template("submission.html", review=chat.get_review(f, temp))
+            print(chat.get_review(f, True))
+            return render_template("submission.html", review="Your code has been reviewed and uploaded to the history tab")
     return render_template("submission.html", review="")
 
 

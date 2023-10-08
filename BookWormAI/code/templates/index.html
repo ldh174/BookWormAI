@@ -50,37 +50,9 @@
 
             <div class="px-3 py-3 mb-4">
                 <h1>Create your first submission through the submission tab:</h1>
-            <!-- js script block here-->
-            <!-- in database select up to the top 10 -->
-            <div id="myHTMLWrapper">
-
-            </div>
-
-            <script>
-                var wrapper = document.getElementById("myHTMLWrapper");
-
-                var myHTML = '';
-                var myData = ''; // data will be retrieved here
-                // get data from server and iterate through the loop
-                // say its named data
-
-                for (var i = 0; i < 10; i++) {
-                    myHTML += `
-                    <a href = "history.html">
-                        <span class="test">${(i + 1)}) [Title]</span>
-                        <br>
-                    </a>`;
-                }
-
-                wrapper.innerHTML = myHTML
-            </script>
             </div>
         </div>
     </div>
-    {% for i in arr2 %}
-        {{i}}
-    {% endfor %}
-    <p>asdfdsafsa</p>
 </body>
 </html>
 

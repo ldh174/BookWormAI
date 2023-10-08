@@ -58,7 +58,7 @@
     <div class="px-5 mb-4 rounded-3" style="background-color: rgb(255, 255, 255);">
         <div class="container-fluid py-1">
 
-            <a href="index.html"><img style="width:50px; height:100px" src="../static/BookWormAI.png"/></a><h1 style="display:inline"> Submit Book </h1>
+            <a href="index.html"><img style="width:50px; height:100px" src="../static/BookWormAI.png"/></a><h1 style="display:inline"> Submit A Story </h1>
             <br>
             <form name = "book_form" action="/submission.html" method="POST" enctype=multipart/form-data>
                 <div class="form-group">
@@ -71,17 +71,12 @@
                     <input maxlength = "150" name = "author" type="text" class="form-control" id="id_author">
                 </div>
 
-<!--                <div class ="pt-1 pb-2 form-group">-->
-<!--                    <label for="book_text">Text:</label>-->
-<!--                    <textarea name = "book_texts" class="form-control" id="id_book_text" rows="3"></textarea>-->
-<!--                </div>-->
-
-
                 <div class="pt-5 pb-2 form-group">
                     <label for="file" class="form-label">Input a .txt file: </label>
                     <input class="form-control" name = "file" accept=".txt" type="file" id="formFile">
                 </div>
 
+                <!--
                 <div class="pt-5 pb-2 form-group">
                     <input name="public_sub" class="form-label" type="checkbox" value="true" id="defaultCheck1">
                     <label for="defaultCheck1">
@@ -89,11 +84,16 @@
                     </label>
                   </div>
 
+                -->
+
                 <button class = "submissionbtn btn btn-outline-success btn-lg" type="submit">Submit</button>
             </form>
             
-           <p>{{review}}</p>
-
+            <div class="px-5 mb-4 rounded-3" style="background-color: rgb(255, 255, 255);">
+                <div class="container-fluid py-1">
+                    <p>{{review}}</p>
+                </div>
+            </div>
         </div>
     </div>
 </body>

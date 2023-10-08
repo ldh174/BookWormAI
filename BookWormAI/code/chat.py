@@ -13,13 +13,14 @@ import numpy as np
 import threading
 import csv
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "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"
 
 def get_review2(file, public=True):
     writer = csv.writer(open('data/reviews.csv', 'a'))
     # File, Title, Author, Time, review
     #writer.writerow("sample")
-    arr = [request.files['file'].filename, request.form.get('title'), request.form.get('author'), str(datetime.datetime.now()), "final review"]
+    final_review = "this book was ok"
+    arr = [request.files['file'].filename, request.form.get('title'), request.form.get('author'), str(datetime.datetime.now()), ("\"" + final_review +"\"")]
 
     writer.writerow(arr)
     return None
@@ -67,7 +68,12 @@ def get_review(file, public):
 
     reviews = ""
     if len(chunks) == 1:
-        return llm_chain.run(chunks[0])
+        final_review = llm_chain.run(chunks[0])
+        writer = csv.writer(open('data/reviews.csv', 'a'))
+        arr = [request.files['file'].filename, request.form.get('title'), request.form.get('author'), str(datetime.datetime.now()), final_review]
+        writer.writerow(arr)
+
+        return final_review
     # Synthesizes reviews if more than one chunk
     else:
         threads = []
@@ -107,7 +113,6 @@ def get_review(file, public):
         # File, Title, Author, Time, review
         #writer.writerow("sample")
         arr = [request.files['file'].filename, request.form.get('title'), request.form.get('author'), str(datetime.datetime.now()), final_review]
-
         writer.writerow(arr)
 
         print("done")
