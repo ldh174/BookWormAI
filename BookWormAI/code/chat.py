@@ -13,7 +13,7 @@ import numpy as np
 import threading
 import csv
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = INSERT_KEY
 
 def get_review2(file, public=True):
     writer = csv.writer(open('data/reviews.csv', 'a'))
